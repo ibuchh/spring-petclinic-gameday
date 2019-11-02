@@ -305,9 +305,9 @@
         <configuration>
           <repository>ibuchh/spring-petclinic</repository>
         </configuration>
-      </plugin>
+      </plugin-->
 
-    </plugins-->
+    </plugins>
   </build>
 
   <!-- Apache 2 license -->
