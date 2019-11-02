@@ -4,11 +4,11 @@ env:
   variables:
     #JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
     DOCKER_REPO_USER: "ibuchh"
-    DOCKER_REPO_NAME: "petclinic-spinnaker-jenkins"
-    ECR_REPOSITORY_URI: "890123456789.dkr.ecr.us-east-1.amazonaws.com/petclinic"
+    DOCKER_REPO_NAME: "spring-petclinic-gameday"
+    #ECR_REPOSITORY_URI: "890123456789.dkr.ecr.us-east-1.amazonaws.com/petclinic"
   parameter-store:
-    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword
-    LOGIN_USER: /CodeBuild/dockerLoginUser
+    #LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword
+    #LOGIN_USER: /CodeBuild/dockerLoginUser
 phases:
   install:
     runtime-versions:
@@ -23,8 +23,8 @@ phases:
     commands:
       - echo Entered the pre_build phase..
       #- $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
-      - docker login --username ibuchh --password $LOGIN_PASSWORD
-      - docker login –u $LOGIN_USER –p $LOGIN_PASSWORD
+      - docker login --username ibuchh --password Shadab12*12*
+      #- docker login –u $LOGIN_USER –p $LOGIN_PASSWORD
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - DOCKER_REPO_URL=$DOCKER_REPO_USER/$DOCKER_REPO_NAME
       - mvn clean package
