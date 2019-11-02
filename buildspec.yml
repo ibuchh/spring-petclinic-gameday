@@ -23,8 +23,8 @@ phases:
     commands:
       - echo Entered the pre_build phase..
       #- $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
-      - docker login --username ibuchh --password Shadab12*12*
-      #- docker login –u $LOGIN_USER –p $LOGIN_PASSWORD
+      #- docker login --username ibuchh --password $password
+      - docker login –u $user –p $password
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - DOCKER_REPO_URL=$DOCKER_REPO_USER/$DOCKER_REPO_NAME
       - mvn clean package
